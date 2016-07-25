@@ -1,4 +1,4 @@
-package com.learning;
+package com.learning.knightQuest;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

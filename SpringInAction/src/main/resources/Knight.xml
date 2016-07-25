@@ -5,13 +5,13 @@
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-  <bean id="knight" class="com.learning.BraveKnight">
+  <bean id="knight" class="com.learning.knightQuest.BraveKnight">
     <constructor-arg ref="quest"/>
   </bean>
   <bean id="quest"
-        class="com.learning.SlayDragonQuest"/>
+        class="com.learning.knightQuest.SlayDragonQuest"/>
   <bean id="minstrel"
-        class="com.learning.Minstrel"/>
+        class="com.learning.knightQuest.Minstrel"/>
   <aop:config>
     <aop:aspect ref="minstrel">
     <aop:pointcut id="embark"

@@ -1,5 +1,7 @@
-package com.learning;
+package com.learning.knightQuest;
 
+import com.learning.knightQuest.BraveKnight;
+import com.learning.knightQuest.Quest;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;

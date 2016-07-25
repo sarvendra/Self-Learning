@@ -1,4 +1,4 @@
-package com.learning;
+package com.learning.knightQuest;
 
 public class Minstrel {
     public void singBeforeQuest() {

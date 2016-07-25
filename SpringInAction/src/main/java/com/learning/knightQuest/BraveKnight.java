@@ -1,4 +1,4 @@
-package com.learning;
+package com.learning.knightQuest;
 
 public class BraveKnight implements Knight {
     private Quest quest;
