@@ -2,9 +2,10 @@ public class Profile {
 	public Name name;
 	public String email;
 
-	private class Name {
+	public class Name {
 		public String firstName;
 		public String lastName;
+		public  static String middleName = "kumar";
 
 		public String getFullName() {
 			if (lastName == null) {

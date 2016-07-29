@@ -6,6 +6,7 @@ public class TestInnerClass {
 		profile.name.lastName = "Anand";
 		profile.email = "Sarvendraanand@gmail.com";
 		System.out.println(profile.name.getFullName() + " " + profile.email);
+		System.out.println("middle name " + profile.name.middleName);
 
 		// Name name = new Name();
 		// name.firstName = "Ramesh";
