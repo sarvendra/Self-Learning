@@ -32,7 +32,7 @@
   <bean id="hank" class="com.learning.springIdol.OneManBand">
     <property name="instruments">
       <map>
-        <entry key="saxophone" value-ref="saxophone"/>
+        <entry key="saxophone" value="#{saxophone}"/>
         <entry key="piano" value-ref="piano"/>
       </map>
     </property>
