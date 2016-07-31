@@ -20,6 +20,7 @@
   <bean id="auditorium" class="com.learning.springIdol.Auditorium"/>
 
   <bean id="saxophone" class="com.learning.springIdol.Saxophone" />
+  <bean id="piano" class="com.learning.springIdol.Piano" />
 
   <bean id="kenny" class="com.learning.springIdol.Instrumentalist">
     <property name="song" value="titanium" />
@@ -30,10 +31,10 @@
 
   <bean id="hank" class="com.learning.springIdol.OneManBand">
     <property name="instruments">
-      <list>
-        <ref bean="saxophone" />
-        <ref bean="saxophone" />
-      </list>
+      <map>
+        <entry key="saxophone" value-ref="saxophone"/>
+        <entry key="piano" value-ref="piano"/>
+      </map>
     </property>
   </bean>
 </beans>

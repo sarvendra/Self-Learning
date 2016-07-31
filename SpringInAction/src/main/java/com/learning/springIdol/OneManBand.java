@@ -1,17 +1,19 @@
 package com.learning.springIdol;
 
-import java.util.Collection;
+import java.util.Map;
 
 public class OneManBand implements Performer {
-    Collection<Instrument> instruments;
-    public void setInstruments(Collection<Instrument> instruments) {
+    Map<String, Instrument> instruments;
+    public void setInstruments(Map<String, Instrument> instruments) {
         this.instruments = instruments;
     }
 
     public OneManBand() {}
 
     public void perform() {
-        for(Instrument instrument : instruments) {
+        for(String key : instruments.keySet()) {
+            System.out.println("instrument " + key);
+            Instrument instrument = instruments.get(key);
             instrument.play();
         }
     }
