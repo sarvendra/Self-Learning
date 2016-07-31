@@ -37,4 +37,9 @@
       </map>
     </property>
   </bean>
+
+  <bean id="carl" class="com.learning.springIdol.Instrumentalist">
+    <property name="song" value="#{kenny.song}"/>
+    <property name="instrument" value="#{kenny.instrument}"/>
+  </bean>
 </beans>
