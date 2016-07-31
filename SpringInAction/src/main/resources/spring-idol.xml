@@ -23,6 +23,8 @@
 
   <bean id="kenny" class="com.learning.springIdol.Instrumentalist">
     <property name="song" value="titanium" />
-    <property name="instrument" ref="saxophone" />
+    <property name="instrument">
+      <bean class="com.learning.springIdol.Saxophone"/>
+    </property>
   </bean>
 </beans>
