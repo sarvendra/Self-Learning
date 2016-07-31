@@ -4,6 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-  <bean id="duke" class="com.learning.springIdol.Juggler" />
+  <bean id="duke" class="com.learning.springIdol.PoeticJuggler">
+    <constructor-arg value="15"/>
+    <constructor-arg ref="sonnet29" />
+  </bean>
 
+  <bean id="sonnet29" class="com.learning.springIdol.Sonnet29" />
+
+  <bean id="stage" class="com.learning.springIdol.Stage"
+    factory-method="getInstance"/>
 </beans>
