@@ -8,7 +8,7 @@ public class PerformerMain {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-idol.xml");
         Performer performer = (Performer) context.getBean("duke");
         performer.perform();
-        Stage stage = (Stage) context.getBean("stage");
-        System.out.println(stage.getStageName());
+        Performer performer2 = (Performer) context.getBean("duke");
+        performer2.perform();
     }
 }

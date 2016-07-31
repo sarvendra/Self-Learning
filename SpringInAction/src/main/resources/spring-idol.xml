@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-  <bean id="duke" class="com.learning.springIdol.PoeticJuggler">
+  <bean id="duke" class="com.learning.springIdol.PoeticJuggler" scope="prototype">
     <constructor-arg value="15"/>
     <constructor-arg ref="sonnet29" />
   </bean>
