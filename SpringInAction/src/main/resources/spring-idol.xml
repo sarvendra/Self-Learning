@@ -2,15 +2,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       default-init-method="turnOnLights"
+       default-destroy-method="turnOffLights"
+>
 
   <bean id="duke" class="com.learning.springIdol.PoeticJuggler" scope="prototype">
     <constructor-arg value="15"/>
-    <constructor-arg ref="sonnet29" />
+    <constructor-arg ref="sonnet29"/>
   </bean>
 
-  <bean id="sonnet29" class="com.learning.springIdol.Sonnet29" />
+  <bean id="sonnet29" class="com.learning.springIdol.Sonnet29"/>
 
   <bean id="stage" class="com.learning.springIdol.Stage"
-    factory-method="getInstance"/>
+        factory-method="getInstance"/>
+
+  <bean id="auditorium" class="com.learning.springIdol.Auditorium"/>
 </beans>
