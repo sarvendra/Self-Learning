@@ -6,10 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class PerformerMain {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-idol.xml");
-        {
-            Auditorium auditorium = (Auditorium) context.getBean("auditorium");
-        }
-        Performer performer = (Performer) context.getBean("duke");
+        Performer performer = (Performer) context.getBean("kenny");
         performer.perform();
     }
 }

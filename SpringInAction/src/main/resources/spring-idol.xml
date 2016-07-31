@@ -18,4 +18,11 @@
         factory-method="getInstance"/>
 
   <bean id="auditorium" class="com.learning.springIdol.Auditorium"/>
+
+  <bean id="saxophone" class="com.learning.springIdol.Saxophone" />
+
+  <bean id="kenny" class="com.learning.springIdol.Instrumentalist">
+    <property name="song" value="titanium" />
+    <property name="instrument" ref="saxophone" />
+  </bean>
 </beans>
