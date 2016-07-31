@@ -27,4 +27,13 @@
       <bean class="com.learning.springIdol.Saxophone"/>
     </property>
   </bean>
+
+  <bean id="hank" class="com.learning.springIdol.OneManBand">
+    <property name="instruments">
+      <list>
+        <ref bean="saxophone" />
+        <ref bean="saxophone" />
+      </list>
+    </property>
+  </bean>
 </beans>
