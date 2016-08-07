@@ -1,18 +1,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
-       default-init-method="turnOnLights"
-       default-destroy-method="turnOffLights"
->
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-  <bean id="duke" class="com.learning.springIdol.PoeticJuggler" scope="prototype">
-    <constructor-arg value="15"/>
-    <constructor-arg ref="sonnet29"/>
+  <context:annotation-config />
+
+  <bean id="duke" class="com.learning.springIdol.PoeticJuggler">
   </bean>
 
-  <bean id="sonnet29" class="com.learning.springIdol.Sonnet29"/>
+  <bean id="sonnet29" class="com.learning.springIdol.Sonnet29" autowire-candidate="true"/>
 
   <bean id="stage" class="com.learning.springIdol.Stage"
         factory-method="getInstance"/>
@@ -20,26 +20,10 @@
   <bean id="auditorium" class="com.learning.springIdol.Auditorium"/>
 
   <bean id="saxophone" class="com.learning.springIdol.Saxophone" />
+
   <bean id="piano" class="com.learning.springIdol.Piano" />
 
-  <bean id="kenny" class="com.learning.springIdol.Instrumentalist">
-    <property name="song" value="titanium" />
-    <property name="instrument">
-      <bean class="com.learning.springIdol.Saxophone"/>
-    </property>
-  </bean>
-
-  <bean id="hank" class="com.learning.springIdol.OneManBand">
-    <property name="instruments">
-      <map>
-        <entry key="saxophone" value="#{saxophone}"/>
-        <entry key="piano" value-ref="piano"/>
-      </map>
-    </property>
-  </bean>
-
   <bean id="carl" class="com.learning.springIdol.Instrumentalist">
-    <property name="song" value="#{kenny.song}"/>
-    <property name="instrument" value="#{kenny.instrument}"/>
+    <property name="song" value="wild one"/>
   </bean>
 </beans>

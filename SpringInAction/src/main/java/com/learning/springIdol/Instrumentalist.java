@@ -1,7 +1,12 @@
 package com.learning.springIdol;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class Instrumentalist implements Performer {
     private String song;
+    @Autowired
+    @Qualifier("longwire")
     private Instrument instrument;
 
     public Instrumentalist() {}

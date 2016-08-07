@@ -1,8 +1,14 @@
 package com.learning.springIdol;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
+
 public class PoeticJuggler extends Juggler {
     private Poem poem;
 
+//    public PoeticJuggler() {}
+
+    @Autowired
     public PoeticJuggler(Poem poem) {
         super();
         this.poem = poem;
