@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Handling Form Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'id: ' + ${profile.id}" />
+<p th:text="'first name: ' + ${profile.name.firstName}" />
+<p th:text="'last name: ' + ${profile.name.lastName}" />
+<p th:text="'Is this person mad ' + ${profile.isMad}"/>
+<!--<p th:text="'sex: ' + ${profile.sex}"/>-->
+<a href="/profile">Submit another profile</a>
+</body>
+</html>
