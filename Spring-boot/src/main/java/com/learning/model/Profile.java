@@ -105,7 +105,7 @@ public class Profile {
         Sex(String sex) {
             this.sex = sex;
         }
-//
+
 //        @Override
 //        public String toString() {
 //            return this.sex;
