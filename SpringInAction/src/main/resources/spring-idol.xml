@@ -23,6 +23,10 @@
       <aop:pointcut id="thinking" expression="execution(* com.learning.springIdol.Thinker.thinkOfSomething(String)) and args(thoughts)"/>
       <aop:before method="interceptThoughts" pointcut-ref="thinking" arg-names="thoughts"/>
     </aop:aspect>
+    <aop:aspect>
+      <aop:declare-parents types-matching="com.learning.springIdol.Performer+" implement-interface="com.learning.springIdol.Contestant"
+                           default-impl="com.learning.springIdol.GraciousContestant"/>
+    </aop:aspect>
   </aop:config>
 
   <bean id="volunteer" class="com.learning.springIdol.Volunteer"/>
