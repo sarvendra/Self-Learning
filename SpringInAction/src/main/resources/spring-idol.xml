@@ -28,10 +28,9 @@
                            <!--default-impl="com.learning.springIdol.GraciousContestant"/>-->
     <!--</aop:aspect>-->
   <!--</aop:config>-->
+  <bean id="volunteer" class="com.learning.springIdol.Volunteer"/>
+  <bean id="magician" class="com.learning.springIdol.Magician"/>
 
   <aop:aspectj-autoproxy/>
-
-  <!--<bean id="volunteer" class="com.learning.springIdol.Volunteer"/>-->
-  <!--<bean id="magician" class="com.learning.springIdol.Magician"/>-->
 
 </beans>
