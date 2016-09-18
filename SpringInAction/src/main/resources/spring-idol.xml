@@ -16,12 +16,16 @@
 
   <aop:config>
     <aop:aspect ref="audience">
-      <aop:pointcut id="performance" expression="execution(* com.learning.springIdol.Instrument.play(..))"/>
-      <aop:before method="takeSeats" pointcut-ref="performance"/>
-      <aop:before method="turnOffCellPhones" pointcut-ref="performance"/>
-      <aop:after-returning method="applaud" pointcut-ref="performance"/>
-      <aop:after-throwing method="demandRefund" pointcut-ref="performance"/>
+      <aop:pointcut id="performance" expression="execution(* com.learning.springIdol.Performer.perform(..))"/>
+      <aop:around method="watchPerformance" pointcut-ref="performance"/>
+    </aop:aspect>
+    <aop:aspect ref="magician">
+      <aop:pointcut id="thinking" expression="execution(* com.learning.springIdol.Thinker.thinkOfSomething(String)) and args(thoughts)"/>
+      <aop:before method="interceptThoughts" pointcut-ref="thinking" arg-names="thoughts"/>
     </aop:aspect>
   </aop:config>
-  
+
+  <bean id="volunteer" class="com.learning.springIdol.Volunteer"/>
+  <bean id="magician" class="com.learning.springIdol.Magician"/>
+
 </beans>
