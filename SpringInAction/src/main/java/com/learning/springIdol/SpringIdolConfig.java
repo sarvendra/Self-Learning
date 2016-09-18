@@ -15,7 +15,13 @@ public class SpringIdolConfig {
     public Performer kenny() {
         Instrumentalist kenny = new Instrumentalist();
         kenny.setSong("panda");
+        kenny.setInstrument(piano());
         return kenny;
+    }
+
+    @Bean
+    public Instrument piano() {
+        return new Piano();
     }
 
     @Bean
