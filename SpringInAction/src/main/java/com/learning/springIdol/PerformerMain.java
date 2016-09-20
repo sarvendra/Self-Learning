@@ -17,7 +17,7 @@ public class PerformerMain {
 //        System.out.println(mindReader.getThoughts());
         JdbcSpitterDAO jdbcSpitterDAO = (JdbcSpitterDAO) context.getBean("jdbcSpitterDAO");
         Spitter spitter = jdbcSpitterDAO.getSpitterById("da834670-13f9-4a4d-bd5c-3acb56662a50");
-        spitter.setAddress("C764 Sector 43");
+        spitter.setAddress("C764 Sector 43 Gurgaon");
         spitter.setAge(25);
         jdbcSpitterDAO.saveSpitter(spitter);
     }

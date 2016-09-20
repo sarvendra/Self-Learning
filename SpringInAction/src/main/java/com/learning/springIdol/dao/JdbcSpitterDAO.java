@@ -5,16 +5,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.UUID;
 
 @Repository
-public class JdbcSpitterDAO implements SpitterDAO {
+public class JdbcSpitterDAO extends JdbcDaoSupport implements SpitterDAO {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private DataSource dataSource;
+
+    @PostConstruct
+    private void initialize() {
+        setDataSource(dataSource);
+    }
 
     private static final String SQL_INSERT_TEST =
             "insert into test(id, name, address, age, sex) values(?, ?, ?, ?, ?)";
@@ -26,12 +33,12 @@ public class JdbcSpitterDAO implements SpitterDAO {
             "select * from test where id = ?";
 
     public Spitter getSpitterById(String id) {
-        return (Spitter)jdbcTemplate.queryForObject(SQL_SELECT_TEST, new Object[] {id}, new SpitterRowMapper());
+        return (Spitter)getJdbcTemplate().queryForObject(SQL_SELECT_TEST, new Object[] {id}, new SpitterRowMapper());
     }
 
     public void addSpitter(Spitter spitter) {
         try {
-            jdbcTemplate.update(SQL_INSERT_TEST, spitter.getId(), spitter.getName(), spitter.getAddress(),
+            getJdbcTemplate().update(SQL_INSERT_TEST, spitter.getId(), spitter.getName(), spitter.getAddress(),
                     spitter.getAge(), spitter.getSex());
         } catch (DataAccessException e) {
             System.out.println(e.getMessage());
@@ -40,7 +47,7 @@ public class JdbcSpitterDAO implements SpitterDAO {
 
     public void saveSpitter(Spitter spitter) {
         try {
-            jdbcTemplate.update(SQL_UPDATE_TEST, spitter.getAddress(),
+            getJdbcTemplate().update(SQL_UPDATE_TEST, spitter.getAddress(),
                     spitter.getAge(), spitter.getId());
         } catch(DataAccessException e) {
             System.out.println(e.getMessage());
