@@ -1,6 +1,8 @@
 package com.learning.springIdol;
 
-import com.learning.springIdol.dao.JdbcSpitterDAO;
+import com.learning.springIdol.dao.EmployeeDAO;
+import com.learning.springIdol.dao.HibernateEmployeeDAO;
+import com.learning.springIdol.model.Employee;
 import com.learning.springIdol.model.Spitter;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,10 +17,15 @@ public class PerformerMain {
 //        Thinker volunteer = (Thinker) context.getBean("volunteer");
 //        volunteer.thinkOfSomething("Queen of hearts");
 //        System.out.println(mindReader.getThoughts());
-        JdbcSpitterDAO jdbcSpitterDAO = (JdbcSpitterDAO) context.getBean("jdbcSpitterDAO");
-        Spitter spitter = jdbcSpitterDAO.getSpitterById("da834670-13f9-4a4d-bd5c-3acb56662a50");
-        spitter.setAddress("C764 Sector 43");
-        spitter.setAge(25);
-        jdbcSpitterDAO.saveSpitter(spitter);
+//        JdbcSpitterDAO jdbcSpitterDAO = (JdbcSpitterDAO) context.getBean("jdbcSpitterDAO");
+//        Spitter spitter = jdbcSpitterDAO.getSpitterById("da834670-13f9-4a4d-bd5c-3acb56662a50");
+//        spitter.setAddress("C764 Sector 43");
+//        spitter.setAge(25);
+//        jdbcSpitterDAO.saveSpitter(spitter);
+        EmployeeDAO hibernateEmployeeDAO = (EmployeeDAO) context.getBean("hibernateEmployeeDAO");
+        Employee employee = hibernateEmployeeDAO.getEmployeeById("3902aba8-e54a-4def-9199-258c105689f6");
+        employee.setAddress("Google");
+        employee.setAge(26);
+        hibernateEmployeeDAO.saveEmployee(employee);
     }
 }
