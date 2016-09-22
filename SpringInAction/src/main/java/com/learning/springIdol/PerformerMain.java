@@ -23,9 +23,14 @@ public class PerformerMain {
 //        spitter.setAge(25);
 //        jdbcSpitterDAO.saveSpitter(spitter);
         EmployeeDAO hibernateEmployeeDAO = (EmployeeDAO) context.getBean("hibernateEmployeeDAO");
-        Employee employee = hibernateEmployeeDAO.getEmployeeById("3902aba8-e54a-4def-9199-258c105689f6");
-        employee.setAddress("Google");
-        employee.setAge(26);
-        hibernateEmployeeDAO.saveEmployee(employee);
+        Employee employee = new Employee();
+        employee.setId(UUID.randomUUID().toString());
+        employee.setName("Udit");
+        employee.setAddress("Facebook");
+        employee.setAge(25);
+        employee.setSex("Female");
+        hibernateEmployeeDAO.addEmployee(employee);
+//        Employee employee = hibernateEmployeeDAO.getEmployeeById("2ccf917c-7e1a-4a9b-88b6-dc730dd5ef1b");
+//        hibernateEmployeeDAO.deleteEmployee(employee);
     }
 }
