@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.ListIterator.*;
 
 public class Box<T> {
 	private T t;
@@ -26,6 +27,21 @@ public class Box<T> {
 
 		List<Integer> li2 = Arrays.asList(1, 2, 3);
 		print(li2);
+
+		List<Integer> list = new ArrayList<>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(5);
+		list.add(6);
+		ListIterator<Integer> it;
+		for (it = list.listIterator(list.size()); it.hasPrevious(); ) {
+		    System.out.println(it.previous());
+		}
+		it = list.listIterator(3);
+		System.out.println(it.previous());
+		System.out.println(it.remove());
 	}
 
 	public static double sumOfList(List<? extends Number> list) {
