@@ -1,7 +1,7 @@
 package com.learning.springIdol;
 
 import com.learning.springIdol.dao.EmployeeDAO;
-import com.learning.springIdol.dao.HibernateEmployeeDAO;
+//import com.learning.springIdol.dao.HibernateEmployeeDAO;
 import com.learning.springIdol.model.Employee;
 import com.learning.springIdol.model.Spitter;
 import org.springframework.context.ApplicationContext;
@@ -22,14 +22,14 @@ public class PerformerMain {
 //        spitter.setAddress("C764 Sector 43");
 //        spitter.setAge(25);
 //        jdbcSpitterDAO.saveSpitter(spitter);
-        EmployeeDAO hibernateEmployeeDAO = (EmployeeDAO) context.getBean("hibernateEmployeeDAO");
+        EmployeeDAO jpaEmployeeDAO = (EmployeeDAO) context.getBean("jpaEmployeeDao");
         Employee employee = new Employee();
         employee.setId(UUID.randomUUID().toString());
-        employee.setName("Udit");
+        employee.setName("Prateek");
         employee.setAddress("Facebook");
         employee.setAge(25);
         employee.setSex("Female");
-        hibernateEmployeeDAO.addEmployee(employee);
+        jpaEmployeeDAO.addEmployee(employee);
 //        Employee employee = hibernateEmployeeDAO.getEmployeeById("2ccf917c-7e1a-4a9b-88b6-dc730dd5ef1b");
 //        hibernateEmployeeDAO.deleteEmployee(employee);
     }
