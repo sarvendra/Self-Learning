@@ -23,15 +23,15 @@ public class PerformerMain {
 //        spitter.setAge(25);
 //        jdbcSpitterDAO.saveSpitter(spitter);
         EmployeeDAO jpaEmployeeDAO = (EmployeeDAO) context.getBean("jpaEmployeeDao");
-        /*Employee employee = new Employee();
+        Employee employee = new Employee();
         employee.setId(UUID.randomUUID().toString());
-        employee.setName("Prateek2");
+        employee.setName("Gaurav");
         employee.setAddress("Facebook");
-        employee.setAge(25);
-        employee.setSex("Female");
-        jpaEmployeeDAO.addEmployee(employee);*/
-        Employee employee = jpaEmployeeDAO.getEmployeeById("d06e09cf-5d76-442b-9562-ef2a58c831a5");
-        employee.setSex("Trans");
-        jpaEmployeeDAO.saveEmployee(employee);
+        employee.setAge(27);
+        employee.setSex("male");
+        jpaEmployeeDAO.addEmployee(employee);
+//        Employee employee = jpaEmployeeDAO.getEmployeeById("d06e09cf-5d76-442b-9562-ef2a58c831a5");
+//        employee.setSex("Trans");
+//        jpaEmployeeDAO.saveEmployee(employee);
     }
 }
