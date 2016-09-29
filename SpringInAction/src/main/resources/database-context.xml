@@ -73,6 +73,9 @@
     <property name="entityManagerFactory" ref="emf" />
   </bean>
 
+  <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+    <property name="transactionManager" ref="transactionManager"/>
+  </bean>
   <!-- responsible for registering the necessary Spring components that power annotation-driven transaction management;
        such as when @Transactional methods are invoked -->
   <tx:annotation-driven />
