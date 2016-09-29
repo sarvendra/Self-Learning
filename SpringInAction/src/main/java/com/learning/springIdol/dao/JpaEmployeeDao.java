@@ -13,38 +13,15 @@ import javax.persistence.PersistenceContext;
 
 @Repository
 public class JpaEmployeeDao implements EmployeeDAO {
-    @Autowired
-    private TransactionTemplate transactionTemplate;
-
     @PersistenceContext
     private EntityManager em;
 
     public void addEmployee(final Employee employee) {
-        transactionTemplate.execute(new TransactionCallback<Void>() {
-            public Void doInTransaction(TransactionStatus transactionStatus) {
-                try {
-                    em.persist(employee);
-                } catch (RuntimeException e) {
-                    transactionStatus.setRollbackOnly();
-                    throw e;
-                }
-                return null;
-            }
-        });
+        em.persist(employee);
     }
 
     public void saveEmployee(final Employee employee) {
-        transactionTemplate.execute(new TransactionCallback<Void>() {
-            public Void doInTransaction(TransactionStatus transactionStatus) {
-                try {
-                    em.merge(employee);
-                } catch (RuntimeException e) {
-                    transactionStatus.setRollbackOnly();
-                    throw e;
-                }
-                return null;
-            }
-        });
+        em.merge(employee);
     }
 
     public void deleteEmployee(Employee employee) {

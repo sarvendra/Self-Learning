@@ -31,7 +31,7 @@ public class PerformerMain {
         employee.setSex("Female");
         jpaEmployeeDAO.addEmployee(employee);*/
         Employee employee = jpaEmployeeDAO.getEmployeeById("d06e09cf-5d76-442b-9562-ef2a58c831a5");
-        employee.setSex("Male");
+        employee.setSex("Trans");
         jpaEmployeeDAO.saveEmployee(employee);
     }
 }
