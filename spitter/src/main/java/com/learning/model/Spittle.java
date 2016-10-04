@@ -3,20 +3,21 @@ package com.learning.model;
 import java.util.Date;
 
 public class Spittle {
-
   private final Long id;
   private final String message;
+  private final Spitter spitter;
   private final Date time;
   private Double latitude;
   private Double longitude;
 
-  public Spittle(String message, Date time) {
-    this(null, message, time, null, null);
+  public Spittle(String message, Spitter spitter, Date time) {
+    this(null, message, spitter, time, null, null);
   }
   
-  public Spittle(Long id, String message, Date time, Double longitude, Double latitude) {
+  public Spittle(Long id, String message, Spitter spitter, Date time, Double longitude, Double latitude) {
     this.id = id;
     this.message = message;
+    this.spitter = spitter;
     this.time = time;
     this.longitude = longitude;
     this.latitude = latitude;
@@ -28,6 +29,10 @@ public class Spittle {
 
   public String getMessage() {
     return message;
+  }
+
+  public Spitter getSpitter() {
+    return spitter;
   }
 
   public Date getTime() {
