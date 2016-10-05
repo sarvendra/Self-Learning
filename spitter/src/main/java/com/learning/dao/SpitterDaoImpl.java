@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -30,8 +31,12 @@ public class SpitterDaoImpl implements SpitterDao {
     }
 
     public Spitter getSpitterByUsername(String username) {
-        Query query = em.createQuery("SELECT s FROM Spitter  s where username = :username");
+        Query query = em.createQuery("SELECT s FROM Spitter  s where s.username = :username");
         query.setParameter("username", username);
-        return (Spitter)query.getSingleResult();
+        try {
+            return (Spitter)query.getSingleResult();
+        } catch (NoResultException ex) {
+            return null;
+        }
     }
 }
