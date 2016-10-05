@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 
@@ -34,11 +35,18 @@ public class SpitterController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String registerUser(@Valid Spitter spitter, BindingResult bindingResult) {
+    public String registerUser(@Valid Spitter spitter,
+                               BindingResult bindingResult,
+                               @RequestParam(value = "profilePicture", required = false) MultipartFile image) {
         if (bindingResult.hasErrors()) {
             return "registerForm";
         }
         spitterService.addSpitter(spitter);
+
+        if (!image.isEmpty()) {
+            // save images
+        }
+
         return "redirect:/spitters/" + spitter.getUsername();
     }
 }
