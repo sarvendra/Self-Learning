@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Repository("spitterDao")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -26,5 +27,11 @@ public class SpitterDaoImpl implements SpitterDao {
 
     public Spitter getSpitterById(String id) {
         return em.find(Spitter.class, id);
+    }
+
+    public Spitter getSpitterByUsername(String username) {
+        Query query = em.createQuery("SELECT s FROM Spitter  s where username = :username");
+        query.setParameter("username", username);
+        return (Spitter)query.getSingleResult();
     }
 }

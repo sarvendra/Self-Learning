@@ -21,4 +21,8 @@ public class SpitterServiceImpl implements SpitterService {
     public Spitter getSpitterById(String id) {
         return spitterDao.getSpitterById(id);
     }
+
+    public Spitter getSpitterByUsername(String username) {
+        return spitterDao.getSpitterByUsername(username);
+    }
 }
